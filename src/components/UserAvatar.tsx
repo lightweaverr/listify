@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { auth } from "../auth"
  
 export default async function UserAvatar() {
@@ -8,9 +9,17 @@ export default async function UserAvatar() {
   if (!session.user) return null
  
   return (
-    <div>
-        {session.user.image ? <img src={session.user.image} alt="User Avatar" /> : ''}
-        {session.user.name ? session.user.name : 'no user found'}    
+    <div className="flex items-center">
+        <Image 
+            className="m-1 rounded-full"
+            src={session.user.image ? session.user.image : '/images/profile.png'}
+            alt="User Profile Image"
+            width={40}
+            height={40}
+        />
+        <div className="mx-2">
+            {session.user.name ? session.user.name : ''}    
+        </div>
     </div>
   )
 }
