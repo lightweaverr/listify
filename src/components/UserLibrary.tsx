@@ -21,6 +21,7 @@ const UserLibrary = async () => {
     getUserLikedSongs(session).then((data) => data.total),
   ]);
 
+  console.log(playlists);
   return (
     <div>UserLibrary</div>
   )
