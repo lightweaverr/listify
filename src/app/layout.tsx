@@ -27,7 +27,7 @@ export default function RootLayout({
           <Navbar />
           <div className="grid grid-cols-10 gap-2 h-full">
             <Sidebar />
-            <div className="flex flex-col col-span-8 overflow-auto rounded-lg bg-paper-700">
+            <div className="flex flex-col col-span-8 rounded-lg bg-paper-700">
               <main className="mx-8 my-4">{children}</main>
             </div>
           </div>

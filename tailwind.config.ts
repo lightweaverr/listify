@@ -27,6 +27,7 @@ const config = {
           400: "#313131",
         },
         white: "#FEFFFE",
+        spotifyGreen: "#1DB954",
         purple: "#531640",
         gray: {
           DEFAULT: "#B3B3B3",

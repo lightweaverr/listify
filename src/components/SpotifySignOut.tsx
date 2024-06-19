@@ -1,17 +1,15 @@
+"use client"
+import { signOut } from "next-auth/react";
 
-import { signOut } from "@/auth"
- 
-export default function SignIn() {
+
+export default function SignOut() {
+  const logout = () => {
+    signOut({ callbackUrl: "http://localhost:3000/login" });
+  };
+  
   return (
     <div className="m-2 py-1 px-3 rounded-full bg-zinc-700 hover:bg-opacity-50">
-        <form
-            action={async () => {
-                "use server"
-                await signOut();
-            }}
-            >
-            <button type="submit">Sign Out</button>
-        </form>
+        <button onClick={logout} > Sign Out </button>
     </div>
     
   )

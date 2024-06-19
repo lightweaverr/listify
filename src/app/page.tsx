@@ -1,13 +1,15 @@
-import { auth } from "../auth"
+
 import SpotifySignIn from "@/components/SpotifySignIn";
 import Navbar from "@/components/Navbar";
+import { getAuthSession } from "@/lib/serverUtils";
+import { redirect } from "next/navigation";
 
 
 export default async function Home() {
-  const session = await auth();
+  const session = await getAuthSession();  
 
 
-  if (!session) return (<SpotifySignIn />)
+  if (!session) redirect('/login');
 
   return (
     <div className="">

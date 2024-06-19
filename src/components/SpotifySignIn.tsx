@@ -1,27 +1,28 @@
+"use client";
 
-import { signIn } from "@/auth"
+
+import { signIn } from "next-auth/react";
 import Image from "next/image";
 
 export default function SignIn() {
+  const handleLogin = () => {
+    signIn("spotify", { callbackUrl: "http://localhost:3000" });
+  };
   return (
 
-    <div className="flex flex-col items-center justify-center w-screen h-screen gap-20">
+    <div className="flex flex-col items-center justify-center overflow-hidden w-full h-screen">
          <Image
             src="/images/spotify_logo.png"
             alt="spotify logo"
             width={240*0.7}
             height={72*0.7}
         />
-         <form action={async () => {
-                "use server"
-                await signIn("spotify")
-            }}>
-            <button 
-                className="flex px-12 py-2 text-lg tracking-widest uppercase rounded-full focus:outline-none bg-primary hover:bg-opacity-80"
-                type="submit">
-                Login
-            </button>
-        </form>
+         <button
+        className="flex px-12 py-2 mt-5 text-lg tracking-widest uppercase rounded-full focus:outline-none bg-spotifyGreen hover:bg-opacity-80"
+        onClick={handleLogin}
+      >
+        Login
+      </button>
     </div>
 
 
