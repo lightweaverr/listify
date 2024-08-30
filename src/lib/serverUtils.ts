@@ -1,7 +1,6 @@
 "use server";
 
-import { authOptions } from "@/auth";
-import { getServerSession } from "next-auth/next";
+import { auth } from "@/auth";
 import { AuthSession } from "@/types/types";
 import axios from "axios";
 
@@ -25,7 +24,7 @@ export const customGet = async (url: string, session: AuthSession | null) => {
 };
 
 export const getAuthSession = async () => {
-  const session = (await getServerSession(authOptions)) as AuthSession;
+  const session = await auth() as AuthSession;
 
   if (!session) {
     return null;
